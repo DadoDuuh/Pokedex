@@ -1,14 +1,13 @@
-import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
 
-const server = express();
+import 'dotenv/config'
+import express from 'express'
+import cors from 'cors'
+import connect from './infra/base/repository/connection.js';
 
-server.use(express.json());
-server.use(cors);
+const servidor = express();
+servidor.use(cors());
+servidor.use(express.json());
 
+const PORT = 3000;
 
-
-
-server.listen(process.env.PORT, 
-              () => console.log(`API online na porta ${process.env.PORT}`))
+servidor.listen(PORT, () => console.log('API iniciada com sucesso na porta ' + PORT));
